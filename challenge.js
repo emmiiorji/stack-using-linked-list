@@ -22,9 +22,10 @@ class Stack {
       this.top = newNode;
     }
     else {
-      const oldTopPointer = this.top;
-      this.top = newNode;
-      this.top.next = oldTopPointer;
+      [this.top, this.top.next] = [newNode, this.top];
+      // const oldTopPointer = this.top;
+      // this.top = newNode;
+      // this.top.next = oldTopPointer;
     }
     this.length += 1;
   }
@@ -36,8 +37,10 @@ class Stack {
     if (this.top === this.bottom) {
       this.bottom = null;
     }
-    const oldTopPointer = this.top;
-    this.top = this.top.next;
+    let oldTopPointer
+    [this.top, oldTopPointer] = [this.top.next, this.top];
+    // const oldTopPointer = this.top;
+    // this.top = this.top.next;
     this.length -= 1;
     return oldTopPointer.val;
   }
