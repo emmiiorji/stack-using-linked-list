@@ -1,14 +1,48 @@
 // Optionally: start with your code from LinkedList challenge.
 
-class Stack {
-  push(number) {
-    // your code here
-  }
-  
-  pop() {
-    // your code here
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
   }
 }
+
+class Stack {
+
+  constructor() {
+    this.top = null;
+    this.bottom = null;
+    this.length = 0;
+  }
+
+  push(n) {
+    const newNode = new Node(n);
+    if (this.length === 0) {
+      this.bottom = newNode;
+      this.top = newNode;
+    }
+    else {
+      const oldTopPointer = this.top;
+      this.top = newNode;
+      this.top.next = oldTopPointer;
+    }
+    this.length += 1;
+  }
+
+  pop() {
+    if (this.length === 0) {
+      return null;
+    }
+    if (this.top === this.bottom) {
+      this.bottom = null;
+    }
+    const oldTopPointer = this.top;
+    this.top = this.top.next;
+    this.length -= 1;
+    return oldTopPointer.val;
+  }
+}
+
 
 const stack = new Stack()
 stack.push(3)
