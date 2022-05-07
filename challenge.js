@@ -1,5 +1,3 @@
-// Optionally: start with your code from LinkedList challenge.
-
 class Node {
   constructor(val) {
     this.val = val;
