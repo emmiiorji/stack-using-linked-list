@@ -21,9 +21,6 @@ class Stack {
     }
     else {
       [this.top, this.top.next] = [newNode, this.top];
-      // const oldTopPointer = this.top;
-      // this.top = newNode;
-      // this.top.next = oldTopPointer;
     }
     this.length += 1;
   }
@@ -37,8 +34,6 @@ class Stack {
     }
     let oldTopPointer
     [this.top, oldTopPointer] = [this.top.next, this.top];
-    // const oldTopPointer = this.top;
-    // this.top = this.top.next;
     this.length -= 1;
     return oldTopPointer.val;
   }
